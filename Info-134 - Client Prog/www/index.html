@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Info-134</title>
+        <script src="js/script.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/style.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    </head>
+    <body onload="start()">
+    <script>
+        $(document).ready(function() {
+            $(".display").on("click", function(e) {
+                const target = $(this).attr("href");
+                $(target).slideToggle("fast");
+                $(".panel").not(target).hide();
+                e.preventDefault();
+            });
+        });
+    </script>
+        <center>
+            <div>
+                <header>
+                    <nav>
+                        <ul>
+                            <li><a class="display" href="#panel1">Introduksjon</a></li>
+                            <li><a class="display" href="#panel2">Oversikt</a></li>
+                            <li><a class="display" href="#panel3">Detaljer</a></li>
+                            <li><a class="display" href="#panel4">Sammenligning</a></li>
+                        </ul>
+                    </nav>
+                </header>
+            </div>
+            <div class="main">
+                <main>
+                    <div class="panel" id="panel1">
+                        <h1>Introduksjon</h1>
+                        <p>
+                            Hensikten med denne netsiden er å tilby et verktøy som kan brukes for å vise data om Norges befolkning.
+                            <br>Dette verktøyet benytter seg av et utvalg fra tre datasett som stammer fra Statistisk sentralbtrå (SSB).
+                            <br>Under er det linket til datasettene verktøyet tar i bruk.
+                        </p>
+                        <p>
+                            <a href="http://data.ssb.no/api/v0/dataset/104857?lang=no">Befolkning</a>
+                        </p>
+                        <p>
+                            <a href="http://data.ssb.no/api/v0/dataset/100145?lang=no">Sysselsatte</a>
+                        </p>
+                        <p>
+                            <a href="http://data.ssb.no/api/v0/dataset/85432?lang=no">Utdanning</a>
+                        </p>
+                        <p>NB! Dataen kan inneholde feil!</p>
+                    </div>
+
+                    <div class="panel" id="panel2">
+                        <h1>Oversikt</h1>
+                        <table id="tables" class="tables">
+                            <tr>
+                                <th>Komune</th>
+                                <th>Nr #</th>
+                                <th>Totalt</th>
+                                <th>Growth</th>
+                            </tr>
+                        </table>
+                    </div>
+
+                    <div class="panel" id="panel3">
+                        <h1>Detaljer</h1>
+
+                        <label for="search">Search County By ID:</label>
+                        <input type="search" id="search" name="Search County ID">
+                        <input type="submit" name="Search" onclick="search()">
+
+                        <br>
+                        <br>
+
+                        <table id="detaljer_table" class="tables">
+                            <tr>
+                                <th>Komune</th>
+                                <th>Nr #</th>
+                                <th>Totalt</th>
+                                <th>Sysselsatte</th>
+                                <th>Utdannede</th>
+                            </tr>
+                            <tr id="row"></tr>
+                        </table>
+
+                        <table id="growth_table" class="tables">
+                            <tr>
+                                <th>År</th>
+                                <th>Befolkningsvekst</th>
+                                <th>Sysselsettingsvekst</th>
+                                <th>Utdanningsvekst</th>
+                            </tr>
+                            <tr>
+                                <td>-</td>
+                                <td>Totalt</td>
+                                <td>Begge Kjønn</td>
+                                <td>Videregående skole-nivå (Menn)</td>
+                            </tr>
+                            <tr id="2007"></tr>
+                            <tr id="2008"></tr>
+                            <tr id="2009"></tr>
+                            <tr id="2010"></tr>
+                            <tr id="2011"></tr>
+                            <tr id="2012"></tr>
+                            <tr id="2013"></tr>
+                            <tr id="2014"></tr>
+                            <tr id="2015"></tr>
+                            <tr id="2016"></tr>
+                            <tr id="2017"></tr>
+                        </table>
+                    </div>
+
+                    <div class="panel" id="panel4">
+                        <h1>Sammenligning</h1>
+                        <p>Placeholder Text</p>
+                    </div>
+                </main>
+            </div>
+
+            <div>
+                <footer>
+                    <div>
+                        <p>Dette er en oppgavebesvarelse i emnet INFO134</p>
+                    </div>
+                </footer>
+            </div>
+        </center>
+    </body>
+</html>
